@@ -20,13 +20,13 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	res.render('home.hbs', {
-		pageTitle: 'Maintainance',
-		message: 'The site is being updated',
-		currentYear: new Date().getFullYear()
-	});
-});
+// app.use((req, res, next) => {
+// 	res.render('home.hbs', {
+// 		pageTitle: 'Maintainance',
+// 		message: 'The site is being updated',
+// 		currentYear: new Date().getFullYear()
+// 	});
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -47,11 +47,9 @@ app.get('/about', (req, res) => {
 	});
 })
 
-app.get('/bad', (req, res) => {
-	res.send({
-		error: {
-			message: 'Bad request'
-		}
+app.get('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
 	});
 });
 
